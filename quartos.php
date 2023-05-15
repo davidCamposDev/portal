@@ -32,7 +32,7 @@
     </button>
     <div class="collapse navbar-collapse flex-column align-items-stretch mt-2" id="filtro">
       <div class="border bg-light p-3 rounded mb-3">
-        <h5 class="mb-3" style="font-size: 18px;">Entrada e Saida</h5>
+        <h5 class="mb-3" style="font-size: 18px;">Disponibilidade de Check-in</h5>
         <label class="form-label">Data de Entrada</label>
         <input type="date" class="form-control shadow-none mb-3">
         <label class="form-label">Data de Saida</label>
