@@ -11,9 +11,7 @@
             <h5 class="mb-3">Paginas</h5>
             <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Home</a><br>
             <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Quartos</a><br>
-            <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">instalações</a><br>
             <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">contate-nos</a><br>
-            <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Sobre</a>
         </div>
         <div class="col-lg-4 p-4">
             <h5 class="mb-3">Redes Socias</h5>
