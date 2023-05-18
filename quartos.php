@@ -75,11 +75,7 @@
         <h5 class="mb-3" style="font-size: 18px;">Hóspedes</h5>
         <div class="d-flex">
           <div class="me-2">
-          <label class="form-label">Adultos</label>
-          <input type="number" class="form-control shadow-none">
-        </div>
-        <div>
-          <label class="form-label">Crianças</label>
+          <label class="form-label"></label>
           <input type="number" class="form-control shadow-none">
         </div>
         </div>
@@ -255,5 +251,6 @@
 <?php require('incorporar/footer.php'); ?>
 <!--Javascrip do css-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"></script>
+
 </body>
 </html>
