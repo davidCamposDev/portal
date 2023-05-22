@@ -1,3 +1,9 @@
+<?php require('registro.php');?>	
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -61,21 +67,13 @@
  					
           <div class="col-lg-2 mb-2">
  						<label class="form-label" style="font-weight: 500;">Adultos</label>
- 						<select class="form-select shadow-none">
-  					
-  						<option value="1">um</option>
-  						<option value="2">Dois</option>
-  						<option value="3">Três</option>
+						<input type="number" class="form-control shadow-none">
 						</select>
  					</div>
  					
           <div class="col-lg-2 mb-2">
  						<label class="form-label" style="font-weight: 500;">Crianças</label>
- 						<select class="form-select shadow-none">
-  						
-  						<option value="1">Uma</option>
-  						<option value="2">Duas</option>
-  						<option value="3">Três</option>
+ 						<input type="number" class="form-control shadow-none">
 						</select>
  					</div>
  					

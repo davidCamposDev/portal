@@ -1,5 +1,6 @@
-<?php
-include 'conexao.php';
+<?php session_start();
+
+ require('conexao.php');
 
 if (isset($_POST['email_user']) || isset($_POST['senha_user'])) {
 

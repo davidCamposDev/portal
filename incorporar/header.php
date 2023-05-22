@@ -1,3 +1,9 @@
+<?php 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <nav class="navbar navbar-expand-lg bg-light px-lg-3 py-lg-2 shadow-sm sticky-top">
             <div class="container-fluid">
               <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php">NOVOTEL</a>
@@ -61,7 +67,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
     	
-    	<form>
+    	<form method="post" action="registro.php">
     		<div class="modal-header">
         	<h5 class="modal-title d-flex align-items-center">
         	<i class="bi bi-person-lines-fill fs-3 me-2">Registro de Usuario</i>
@@ -74,43 +80,43 @@
     		<div class="container-fluid">
     			<div class="row">
     				<div class="col-md-6 ps-0 mb-3">
-    					<label class="form-label">Nome</label>
-    					<input type="text" class="form-control shadow-none" required>
+    					<label class="form-label">Nome Completo</label>
+    					<input type="text" class="form-control shadow-none" name="nome_user" required>
     				</div>
     				<div class="col-md-6 p-0">
     					<label class="form-label">Email</label>
-    					<input type="email" class="form-control shadow-none" placeholder="usuario@gmail.com" required>
+    					<input type="email" class="form-control shadow-none" name="email_user" placeholder="usuario@gmail.com" required>
     				</div>
     				<div class="col-md-6 ps-0 mb-3">
     					<label class="form-label">Telefone</label>
-    					<input type="text" class="form-control shadow-none" placeholder="">
+    					<input type="text" class="form-control shadow-none" name="telefone">
     				</div>
 					<div class="col-md-6 ps-0 mb-3">
     					<label class="form-label">RG</label>
-    					<input type="Text" class="form-control shadow-none">
+    					<input type="Text" class="form-control shadow-none" name="rg_user" required>
     				</div>
     				<div class="col-md-4 ps-0">
     					<label class="form-label">Rua</label>
-    					<textarea class="form-control shadow-none" rows="1"></textarea>
+    					<input type="Text" class="form-control shadow-none" name="rua">
     				</div>
 					<div class="col-md-4 ps-0">
     					<label class="form-label">Bairro</label>
-    					<textarea class="form-control shadow-none" rows="1"></textarea>
+    					<input type="Text" class="form-control shadow-none" name="bairro">
     				</div>
 					<div class="col-md-4 ps-0">
-    					<label class="form-label">Estado</label>
-    					<textarea class="form-control shadow-none" rows="1"></textarea>
+    					<label class="form-label">Cidade</label>
+    					<input type="Text" class="form-control shadow-none" name="cidade">
     				</div>
     				<div class="col-md-6 ps-0 mb-3">
     					<label class="form-label">Senha</label>
-    					<input type="passport" class="form-control shadow-none" required>
+    					<input type="password" class="form-control shadow-none" name="senha_user" required>
     				</div>
     				<div class="col-md-6 p-0">
     					<label class="form-label">Confirmar Senha</label>
-    					<input type="passport" class="form-control shadow-none">
+    					<input type="password" class="form-control shadow-none" name="senha_user" required>
     				</div>
     				<div class="text-end my-1">
-    					<button type="submit" class="btn btn-dark shadow-none">Registre-se</button>
+    					<button type="submit" class="btn btn-dark shadow-none" name="EnviarCadUser">Registre-se</button>
     				</div>
     			</div>
     		</div>	
@@ -122,3 +128,4 @@
 </div>
 	
 </div>
+
