@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22/05/2023 às 12:31
+-- Tempo de geração: 29/05/2023 às 13:27
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -50,18 +50,23 @@ INSERT INTO `administrador` (`nome_adm`, `matricula_adm`, `email_adm`, `senha_ad
 CREATE TABLE `quarto` (
   `preco` int(20) NOT NULL,
   `tipo_quarto` varchar(30) NOT NULL,
-  `descricao` varchar(500) NOT NULL,
+  `descricao` varchar(1000) NOT NULL,
   `cod_quarto` int(11) NOT NULL,
-  `localizacao_quarto` varchar(20) NOT NULL,
-  `foto_quarto` varchar(100) NOT NULL
+  `rua` varchar(50) NOT NULL,
+  `img_quarto` varchar(100) NOT NULL,
+  `servicos` varchar(300) NOT NULL,
+  `bairro` varchar(100) NOT NULL,
+  `cidade` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `quarto`
 --
 
-INSERT INTO `quarto` (`preco`, `tipo_quarto`, `descricao`, `cod_quarto`, `localizacao_quarto`, `foto_quarto`) VALUES
-(150, 'Quarto Tematico', 'quarto dos minions, baseado na animação de \"MEU MALVADO FAVORITO\"', 1, 'Manaus', '');
+INSERT INTO `quarto` (`preco`, `tipo_quarto`, `descricao`, `cod_quarto`, `rua`, `img_quarto`, `servicos`, `bairro`, `cidade`) VALUES
+(1444, 'Suite', 'Quarto grande', 4, 'Andirá-Açu', 'quarto2.png', 'todos', 'Terra Nova', 'Manaus'),
+(1400, 'Suite dos Minions', 'Quarto para as crianças entrarem com toda a imersão no mundo de \"Gru\" o nosso malvado favorito', 5, 'Alameda', 'quarto5.png', 'Todos', 'Terra Nova', 'Manaus'),
+(2000, 'Suite minimalista', 'Uma suite moderna para aqueles que buscam descanso e tranquilidade', 6, 'Avenida constantino nery', 'quarto3.png', 'café da manhã, almoço e lavanderia 24 horas', 'dijmal batista', 'Manaus');
 
 -- --------------------------------------------------------
 
@@ -100,11 +105,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`nome_user`, `senha_user`, `email_user`, `rg_user`, `cidade`, `rua`, `bairro`, `telefone`, `tipo_login`) VALUES
-('David Vieira', '123', 'juansilva@gmail.com', 3131233, 'Manaus', 'Andirá-Açu', 'Colônia Terra Nova', '92984288326', 0),
-('David Vieira', '321', 'teste@gmail.com', 3134123, 'Manaus', 'Andirá-Açu', 'Colônia Terra Nova', '92984288326', 0),
-('teste', 'ads', 'vieira.campos@gmail.com', 31014887, 'Manaus', 'Andirá-Açu', 'Colônia Terra Nova', '92984288326', 0),
-('teste', '123', 'teste1@gmail.com', 310148873, 'Manaus', 'Andirá-Açu', 'Terra Nova', '92984288326', 0),
-('teste', '123', 'vieira.dacampos@gmail.com', 31014887123, 'Manaus', 'Andirá-Açu', 'Colônia Terra Nova', '92984288326', 0);
+('David Campos', '123', 'david.campos@gmail.com', 31014887, 'Manaus', 'Andirá açu', 'Colônia Terra nova', '92984288326', 1),
+('David Vieira', '123', 'vieira.dacampos@gmail.com', 31014887123, 'Manaus', 'Andirá-Açu', 'Colônia Terra Nova', '92984288323', 0);
 
 --
 -- Índices para tabelas despejadas
@@ -150,7 +152,7 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de tabela `quarto`
 --
 ALTER TABLE `quarto`
-  MODIFY `cod_quarto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod_quarto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `reservas`
