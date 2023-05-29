@@ -37,54 +37,6 @@ if (!isset($_SESSION)) {
         </div>
       </div>
       <!--Fim do carrosel-->
-      <!--formulario carrosel-->
-    <div class="FormularioDoCarrosel container availability-form">
- 	<div class="row">
- 		<div class="col-lg-12 bg-white shadow p-4 rounded">
- 			<h5 class="col-lg-3">Disponibilidade de Check-in</h5>
- 			<form>
- 				<div class="row align-items-end justify-content-center">
-        
-         <div class="col-lg-2 mb-2">
- 						<label class="form-label" style="font-weight: 500;">Estado</label>
- 						<select class="form-select shadow-none">
-             <option value="Selecione">Selecione</option>
-              <option value="Amazonas">Amazonas</option>
-  						<option value="RiodeJaneiro">Rio de Janeiro</option>
-  						<option value="SaoPaulo">São Paulo</option>
-            </select>
- 					</div>
-
- 					<div class="col-lg-2 mb-2">
- 						<label class="form-label" style="font-weight: 500;">Data de Entrada</label>
- 						<input type="date" class="form-control shadow-none">
- 					</div>
-
- 					<div class="col-lg-2 mb-2">
- 						<label class="form-label" style="font-weight: 500;">Data de Saida</label>
- 						<input type="date" class="form-control shadow-none">
- 					</div>
- 					
-          <div class="col-lg-2 mb-2">
- 						<label class="form-label" style="font-weight: 500;">Adultos</label>
-						<input type="number" class="form-control shadow-none">
-						</select>
- 					</div>
- 					
-          <div class="col-lg-2 mb-2">
- 						<label class="form-label" style="font-weight: 500;">Crianças</label>
- 						<input type="number" class="form-control shadow-none">
-						</select>
- 					</div>
- 					
-          <div class="col-lg-1 mb-lg-2 mt-2">
- 						<button type="submit" class="btn btn-outline-success">Enviar</button>
- 					</div>
-
- 				</div>
- 			</form>
- 		</div>
- 	</div>
     </main>
 <!--Fim do Main-->
 <!--Quartos-->

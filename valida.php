@@ -24,7 +24,7 @@ if (isset($_POST['email_user']) || isset($_POST['senha_user'])) {
         //manter sessao 
 
         $_SESSION['nome_user'] = $usuario['nome_user'];
-        $_SESSION['cpf_user'] = $usuario['rg_user'];
+        $_SESSION['rg_user'] = $usuario['rg_user'];
         $_SESSION['email_user'] = $usuario['email_user'];
         $_SESSION['tipo_login'] = $usuario['tipo_login'];
 
@@ -32,11 +32,11 @@ if (isset($_POST['email_user']) || isset($_POST['senha_user'])) {
 
             echo "<script> alert('Administrador [LOGADO]');</script>";
         
-            header("Location: admin/index.php");
+            header("Location: admin/index_adm.php");
 
         } else {
 
-            echo "<script> alert('Aluno [LOGADO]');</script>";
+            echo "<script> alert('Usuario [LOGADO]');</script>";
            
             header("Location: index.php");
 

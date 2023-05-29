@@ -12,6 +12,11 @@
 	if($mysqli->error){
 		die("Falha ao conectar ao banco de dados: " . $mysqli->error);
 	}
+	$host_ip = $_SERVER['HTTP_HOST'];
+	
+	$url = "http://".$host_ip."/portal";
 
+	$url = "http://".$host_ip."/porta1";
 
+	$url_admin = "http://".$host_ip."/portal/admin";
 ?>
