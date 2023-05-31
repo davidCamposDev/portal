@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29/05/2023 às 13:27
+-- Tempo de geração: 31/05/2023 às 13:08
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -20,26 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `hotel_db`
 --
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `administrador`
---
-
-CREATE TABLE `administrador` (
-  `nome_adm` varchar(60) NOT NULL,
-  `matricula_adm` bigint(11) NOT NULL,
-  `email_adm` varchar(60) NOT NULL,
-  `senha_adm` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `administrador`
---
-
-INSERT INTO `administrador` (`nome_adm`, `matricula_adm`, `email_adm`, `senha_adm`) VALUES
-('David Campos', 1, 'davi.alencar@gmail.c', '0c69fb78549f65edf9d190616577ec63');
 
 -- --------------------------------------------------------
 
@@ -113,12 +93,6 @@ INSERT INTO `usuario` (`nome_user`, `senha_user`, `email_user`, `rg_user`, `cida
 --
 
 --
--- Índices de tabela `administrador`
---
-ALTER TABLE `administrador`
-  ADD PRIMARY KEY (`matricula_adm`);
-
---
 -- Índices de tabela `quarto`
 --
 ALTER TABLE `quarto`
@@ -141,12 +115,6 @@ ALTER TABLE `usuario`
 --
 -- AUTO_INCREMENT para tabelas despejadas
 --
-
---
--- AUTO_INCREMENT de tabela `administrador`
---
-ALTER TABLE `administrador`
-  MODIFY `matricula_adm` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `quarto`
