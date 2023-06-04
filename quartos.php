@@ -67,7 +67,7 @@ $select_quarto = mysqli_query($mysqli, "SELECT * FROM quarto ORDER BY cod_quarto
                     </div>
                     <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
                         <h6 class="mb-4"> R$ <?php echo $dados_quarto['preco']; ?> </h6>
-                        <a href="detalhe_quarto.php?id=<?php echo $dados_quarto['cod_quarto']; ?>" class="btn btn-sm w-100 btn-outline-dark shadow-none">Reservar</a>
+                        <a href="alugar.php?id=<?php echo $dados_quarto['cod_quarto']; ?>" class="btn btn-sm w-100 btn-outline-dark shadow-none">Reservar</a>
                     </div>
                 </div>
                 <?php

@@ -23,3 +23,7 @@ $('.slider-principal').slick({
   
     input.value = valorFormatado;
   }
+
+  function redirecionar() {
+    window.location.href = "sair.php";
+  }

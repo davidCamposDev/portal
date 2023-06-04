@@ -18,14 +18,30 @@ if (session_status() == PHP_SESSION_NONE) {
                   <li class="nav-item">
                     <a class="nav-link me-2" href="quartos.php">Quartos</a>
                   </li>
+				  <li class="nav-item">
+                    <a class="nav-link me-2" href="reservas.php">Minha reservas</a>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link me-2" href="contato.php">Contate-nos</a>
                   </li>
+				  
                   
                 </ul>
                 <div class="d-flex" role="Pesquisar">
+				<?php if (isset($_SESSION['email_user'])): ?>
+                        <div class="nav-logout">
+                            <div class="user-info">
+                                <label>
+                                    <?php echo "Olá, " . $_SESSION['nome_user']; ?>
+								<a href="sair.php">Sair</a>
+									
+                                </label>
+                            </div>
+                        </div>
+						<?php else: ?>
                   <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2" data-bs-toggle="modal" data-bs-target="#loginModel">Login	</button>
                   <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal" data-bs-target="#registerModel">Registre-se	</button>
+				  <?php endif; ?>
                 </div>
               </div>
             </div>
