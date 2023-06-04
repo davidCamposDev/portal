@@ -83,7 +83,7 @@ if (mysqli_num_rows($result) > 0) {
                                 <p class="card-text"><?php echo $descricao; ?></p>
                                 <p class="card-text">Serviços: <?php echo $servicos; ?></p>
                                 <p class="card-text">Preço: R$ <?php echo $preco; ?></p>
-                                <p class="card-text">Dias restantes: <?php echo $dias_restantes; ?></p>
+                                <p class="card-text">Estadia de <?php echo $dias_restantes; ?> Dias</p>
                             </div>
                         </div>
                     </div>
