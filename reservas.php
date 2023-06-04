@@ -102,7 +102,8 @@ if (mysqli_num_rows($result) > 0) {
     <?php
 } else {
     // O usuário não possui carros alugados
-    require("incorporar/header.php");
+    require("index.php");
+    echo "<script> alert ('ERRO: VOCÊ NAO POSSUI UM QUARTO RESERVADO.');</script>";
     echo "Você não possui nenhuma reserva de quarto no momento.";
 }
 ?>

@@ -1,4 +1,8 @@
-<?php require('registro.php');?>	
+<?php require('registro.php');?>
+<?php
+require('conexao.php');
+$select_quarto = mysqli_query($mysqli, "SELECT * FROM quarto ORDER BY cod_quarto ASC");
+?>	
 <?php
 if (!isset($_SESSION)) {
     session_start();
@@ -41,202 +45,66 @@ if (!isset($_SESSION)) {
 <!--Fim do Main-->
 <!--Quartos-->
 <article class="conteudo-principal">
-<h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Quartos</h2>
- <div class="container">
- 	<div class="row">
-<!--Quarto 1-->
- 		<div class="col-lg-4 col-md-6 my-3">
- 			<div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
-			  <img src="imagens/quarto1.png" class="card-img-top" alt="...">
-			  <div class="card-body">
-			    <h5 class="card-title">Suite simples</h5>
-			    <h6 class="mb-4">R$1000 por noite</h6>
-			    <div class="sobre mb-4">
-			    	<h6 class="mb-1">Sobre</h6>
-			    	<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		2 Camas
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		1 Banheiro
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Vista para o Mar
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		2 Sofa
-    				</span>
-			    </div>
-			    <div class="instalacao mb-4">
-			    	<h6 class="mb-1">Instalação</h6>
-			    	<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Wifi
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Televisão
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Ar Condicionado
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Café da Manhã
-    				</span>
-    			</div>
+    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Quartos</h2>
+    <div class="container">
+        <div class="row">
+            <?php
+            $count = 0; // Variável para controlar a contagem de quartos
 
-    			<div class="pessoas mb-4">
-			    	<h6 class="mb-1">Hóspedes</h6>
-			    	<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		2 Adultos
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		2 Crianças
-    				</span>
-    			</div>	
-    				<div class="avaliacao mb-4">
+            while ($dados_quarto = mysqli_fetch_assoc($select_quarto)) {
+                if ($count >= 3) {
+                    break; // Limite de 3 quartos alcançado, interrompe o loop
+                }
 
-    					<h6 class="mb-1">Avaliação</h6>
-    					<span class="badge rounded-pill bg-light">
-    						<i class="bi bi-star-fill text-warning"></i>
-    						<i class="bi bi-star-fill text-warning"></i>
-    						<i class="bi bi-star-fill text-warning"></i>
-    						<i class="bi bi-star-fill text-warning"></i>
-    					</span>
-    				</div>
-    				<div class="d-flex justify-content-evenly mb-2">
-            <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Conferir</a>
-    				</div>
-			  </div>
-			</div>
- 		</div>
-<!--Quarto 2-->
- 		<div class="col-lg-4 col-md-6 my-3">
- 			<div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
-			  <img src="imagens/quarto3.png" class="card-img-top" alt="...">
-			  <div class="card-body">
-			    <h5 class="card-title">Suite minimalista</h5>
-			    <h6 class="mb-4">R$1000 por noite </h6>
-			    <div class="features mb-4">
-			    	<h6 class="mb-1">Sobre</h6>
-			    	<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		1 Cama
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		1 Banheiro
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Vista para o mar
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		1 Sofa
-    				</span>
-			    </div>
-			    <div class="instalacao mb-4">
-			    	<h6 class="mb-1">Instalação</h6>
-			    	<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Wifi
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Televisão
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Ar Condicionado
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Aquecedor
-    				</span>
-            <span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Academia
-    				</span>
-          </div>
-    				<div class="pessoas mb-4">
-			    	<h6 class="mb-1">Hóspedes</h6>
-			    	<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		2 Adultos
-    				</span>
-    				
-    				</div>	
-    				<div class="avaliacao mb-4">
+                $img_quarto = $dados_quarto['img_quarto'];
+                $caminho_imagem = 'imagens/quartos_up/' . $img_quarto;
+            ?>
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="<?php echo $caminho_imagem; ?>" alt="Imagem do Quarto" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $dados_quarto['tipo_quarto']; ?></h5>
+                        <h6 class="mb-4">R$ <?php echo $dados_quarto['preco']; ?> Por Noite</h6>
+                        <div class="sobreQuarto mb-4">
+                            <h6 class="mb-1">Descrição</h6>
+                            <span class="text-start badge rounded-pill bg-light text-dark text-wrap">
+                                <?php echo $dados_quarto['descricao']; ?> 
+                            </span>
+                        </div>
+                        <div class="instalacao mb-3">
+                            <h6 class="mb-1">Serviços</h6>
+                            <span class="text-start badge rounded-pill bg-light text-dark text-wrap">
+                                <?php echo $dados_quarto['servicos']; ?>
+                            </span>
+                        </div>
+                        <div class="pessoas">
+                            <h6 class="mb-1">Endereço</h6>
+                            <span class=" text-start badge rounded-pill bg-light text-dark text-wrap">
+                                Rua: <?php echo $dados_quarto['rua']; ?>,
+                                Bairro: <?php echo $dados_quarto['bairro']; ?>,
+                                Cidade: <?php echo $dados_quarto['cidade']; ?>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="text-center mb-4">
+                        <a href="alugar.php?id=<?php echo $dados_quarto['cod_quarto']; ?>" class="btn btn-sm btn-outline-dark shadow-none">Reservar</a>
+                    </div>
+                </div>
+            </div>
+            <?php
+                $count++;
+            }
+            ?>
 
-    					<h6 class="mb-1">Avaliação</h6>
-    					<span class="badge rounded-pill bg-light">
-    						<i class="bi bi-star-fill text-warning"></i>
-    						<i class="bi bi-star-fill text-warning"></i>
-    						<i class="bi bi-star-fill text-warning"></i>
-    						<i class="bi bi-star-fill text-warning"></i>
-    					</span>
-    				</div>
-    				<div class="d-flex justify-content-evenly mb-2">
-    					<a href="#" class="btn btn-sm btn-outline-dark shadow-none">Conferir</a>
-    				</div>
-			  </div>
-			</div>
- 		</div>
-<!--Quarto 3-->
- 		<div class="col-lg-4 col-md-6 my-3">
- 			<div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
-			  <img src="imagens/quarto4.png" class="card-img-top" alt="...">
-			  <div class="card-body">
-			    <h5 class="card-title">Suite Master</h5>
-			    <h6 class="mb-4">R$3000 por noite </h6>
-			    <div class="sobre mb-4">
-			    	<h6 class="mb-1">Sobre</h6>
-			    	<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		cama de casal
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		1 Banheiro
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		vista para o mar
-    				</span>
-			    </div>
-			    <div class="instalacao mb-4">
-			    	<h6 class="mb-1">instalação</h6>
-			    	<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Wifi
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Televisão
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Ar Condicionado
-    				</span>
-    				<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		Café da Manhã
-    				</span>
-          </div>
-    				<div class="pessoas mb-4">
-			    	<h6 class="mb-1">Hóspedes</h6>
-			    	<span class="badge rounded-pill bg-light text-dark text-wrap">
-			    		2 Adultos
-    				</span>
-    				</div>
-    					
-    				<div class="avaliacao mb-4">
-
-    					<h6 class="mb-1">Avaliação</h6>
-    					<span class="badge rounded-pill bg-light">
-    						<i class="bi bi-star-fill text-warning"></i>
-    						<i class="bi bi-star-fill text-warning"></i>
-    						<i class="bi bi-star-fill text-warning"></i>
-    						<i class="bi bi-star-fill text-warning"></i>
-                <i class="bi bi-star-fill text-warning"></i>
-    					</span>
-    				</div>
-    				<div class="d-flex justify-content-evenly mb-2">
-    					<a href="#" class="btn btn-sm btn-outline-dark shadow-none">Conferir</a>
-    				</div>
-			  </div>
-			</div>
- 		</div>
-
-
- 		<div class="col-lg-12 text-center mt-5">
- 			<a href="#" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Mais quartos</a>
- 		</div>
- 	</div>	
- </div>
-
+        </div>
+        
+        <div class="col-lg-12 text-center mt-5">
+            <a href="quartos.php" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Mais quartos</a>
+        </div>
+    </div>
 </article>
+
+
 <!--Fim dos Quartos-->
       <!--Rodapé-->
         <?php require('incorporar/footer.php'); ?>

@@ -6,8 +6,9 @@ if(!isset($_SESSION)){
 }
 
 if(!isset($_SESSION['rg_user'])){
-    include('incorporar/header.php');
-    die("---Você precisa logar para acessar as informações dessa página!---<p><br><br><a href=\"index.php\">Entrar</a></p>");
+    include('index.php');
+    echo "<script> alert ('ERRO: VOCÊ NÃO ESTA LOGADO.');</script>";
+    die("---Você precisa logar para acessar as informações dessa página!");
 
 
 }
