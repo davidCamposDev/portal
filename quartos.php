@@ -2,6 +2,7 @@
 require('conexao.php');
 $select_quarto = mysqli_query($mysqli, "SELECT * FROM quarto ORDER BY cod_quarto ASC");
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,7 +14,6 @@ $select_quarto = mysqli_query($mysqli, "SELECT * FROM quarto ORDER BY cod_quarto
     <?php require("incorporar/links.php");?>
     <!--Meu Css-->
     <link rel="stylesheet" href="./CSS/estilo.css">
-    
 </head>
 <body>
     <!--Topo-->
@@ -25,20 +25,33 @@ $select_quarto = mysqli_query($mysqli, "SELECT * FROM quarto ORDER BY cod_quarto
     </div>
 
     <main class="container">
+        <!--Filtro por cidade-->
+        <div class="my-4">
+            <h4 class="mb-3">Filtrar por cidade:</h4>
+            <form action="" method="GET">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="cidade" placeholder="Digite a cidade">
+                    <button class="btn btn-outline-dark" type="submit">Pesquisar</button>
+                </div>
+            </form>
+        </div>
+
         <!--Quartos-->
-                <?php
-                $count = 0; // Variável para controlar a contagem de quartos
+        <?php
+        $count = 0; // Variável para controlar a contagem de quartos
 
-                while ($dados_quarto = mysqli_fetch_assoc($select_quarto)) {
-                    $img_quarto = $dados_quarto['img_quarto'];
-                    $caminho_imagem = 'imagens/quartos_up/' . $img_quarto;
+        while ($dados_quarto = mysqli_fetch_assoc($select_quarto)) {
+            // Verifica se a cidade do quarto corresponde à cidade pesquisada (caso tenha sido enviada)
+            $cidadePesquisada = isset($_GET['cidade']) ? $_GET['cidade'] : '';
+            if ($cidadePesquisada !== '' && $dados_quarto['cidade'] !== $cidadePesquisada) {
+                continue; // Pula para a próxima iteração do loop se a cidade não corresponder
+            }
 
-                    if ($count % 1 === 0) {
-                        // Abre uma nova linha a cada 2 quartos
-                        echo'<div class="card mb-4 border-0 shadow">';
-                        echo '<div class="row g-0 p-3 align-items-center justify-content-center">';
-                    }
-                    ?>
+            $img_quarto = $dados_quarto['img_quarto'];
+            $caminho_imagem = 'imagens/quartos_up/' . $img_quarto;
+            ?>
+            <div class="card mb-4 border-0 shadow">
+                <div class="row g-0 p-3 align-items-center justify-content-center">
                     <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
                         <img src="<?php echo $caminho_imagem; ?>" alt="Imagem do Quarto" class="img-fluid rounded">
                     </div>
@@ -46,19 +59,19 @@ $select_quarto = mysqli_query($mysqli, "SELECT * FROM quarto ORDER BY cod_quarto
                         <h5 class="mb-3"> <?php echo $dados_quarto['tipo_quarto']; ?> </h5>
                         <div class="sobreQuarto mb-4">
                             <h6 class="mb-1">Descrição</h6>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                            <span class="text-start badge rounded-pill bg-light text-dark text-wrap">
                                 <?php echo $dados_quarto['descricao']; ?> 
                             </span>
                         </div>
                         <div class="instalacao mb-3">
                             <h6 class="mb-1">Serviços</h6>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                            <span class="text-start badge rounded-pill bg-light text-dark text-wrap">
                                 <?php echo $dados_quarto['servicos']; ?>
                             </span>
                         </div>
                         <div class="pessoas">
                             <h6 class="mb-1">Endereço</h6>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                            <span class="text-start badge rounded-pill bg-light text-dark text-wrap">
                                 Rua: <?php echo $dados_quarto['rua']; ?>,
                                 Bairro: <?php echo $dados_quarto['bairro']; ?>,
                                 Cidade: <?php echo $dados_quarto['cidade']; ?>
@@ -70,29 +83,16 @@ $select_quarto = mysqli_query($mysqli, "SELECT * FROM quarto ORDER BY cod_quarto
                         <a href="alugar.php?id=<?php echo $dados_quarto['cod_quarto']; ?>" class="btn btn-sm w-100 btn-outline-dark shadow-none">Reservar</a>
                     </div>
                 </div>
-                <?php
-                $count++;
-                if ($count % 1 === 0) {
-                    // Fecha a linha a cada 2 quartos
-                    echo '</div>';
-                }
-            }
+            </div>
+            <?php
+            $count++;
+        }
 
-            // Verifica se há algum quarto faltando para fechar a última linha
-            if ($count % 1 !== 0) {
-                // Exibe um bloco vazio para completar a linha
-                echo '<div class="col-md-5"></div>';
-                // Fecha a linha
-                echo '</div>';
-            }
-
-            // Verifica se não há nenhum quarto cadastrado
-            if ($count === 0) {
-                echo "<p>Não há quartos cadastrados.</p>";
-            }
-            ?>
-
-        </div>
+        // Verifica se não há nenhum quarto cadastrado
+        if ($count === 0) {
+            echo "<p>Não há quartos cadastrados.</p>";
+        }
+        ?>
     </main>
 
     <?php require('incorporar/footer.php'); ?>
@@ -100,6 +100,5 @@ $select_quarto = mysqli_query($mysqli, "SELECT * FROM quarto ORDER BY cod_quarto
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"></script>
 
 </body>
-
-
 </html>
+

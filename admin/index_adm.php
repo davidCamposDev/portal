@@ -44,6 +44,9 @@
                   <li class="nav-item">
                     <a class="nav-link me-2" href="exibir.php">Exibir</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link me-2" href="admin_reservas.php">Reservas</a>
+                  </li>
 
 				          <li class="nav-item" >
                     <a class="nav-link me-2" href="../sair.php">Sair</a>
