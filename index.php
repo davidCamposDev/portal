@@ -38,6 +38,9 @@ if (!isset($_SESSION)) {
           <div class="carousel-item" data-bs-interval="6000">
             <img src="imagens/carrosel/3.png" class="d-block w-100" alt="...">
           </div>
+          <div class="carousel-item" data-bs-interval="6000">
+            <img src="imagens/carrosel/4.png" class="d-block w-100" alt="...">
+          </div>
         </div>
       </div>
       <!--Fim do carrosel-->
