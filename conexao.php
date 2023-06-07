@@ -1,9 +1,9 @@
 <?php
 //conexao com o Banco de dados
 	$host = 'localhost';
-	$usuario = 'root';
-	$senha = '';
-	$database = 'hotel_db';
+	$usuario = 'if0_34371725';
+	$senha = 'campos7x';
+	$database = 'if0_34371725_hotel_db';
 	
 	date_default_timezone_set("America/Manaus");
 	
